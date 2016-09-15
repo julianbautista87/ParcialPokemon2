@@ -1,0 +1,243 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#vistaPelea {
+    margin:5px 5px 5px 5px;
+    width: 100%; 
+    border: 1px solid black;
+    border-radius: 25px;
+    position:inherit;
+}
+
+#imagenVistaPelea {
+    content:url('https://images.designtrends.com/wp-content/uploads/2015/12/10072441/Space-Backgrounds33.jpg');
+    background: url('https://images.designtrends.com/wp-content/uploads/2015/12/10072441/Space-Backgrounds33.jpg');
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    z-index: 0;
+
+}
+
+#imagenVistaPeleaPokemonEnemigo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+#imagenVistaPeleaPokemonPropio {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+#PokemonPropio {
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    z-index: 1;
+
+}
+#PokemonEnemigo{
+
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    right: 8%;
+    top: 15%;
+    z-index: 1;
+}
+
+#MasterBall{
+
+    content:url(http://www.playstore.juegos/wp-content/uploads/2015/12/Masterball.jpg);
+    width: 10%;
+    height: 40%;
+    position: absolute;
+    right: 45%;
+    top: -22%;
+    z-index: 1;
+    
+}
+.myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #050505;
+	-webkit-box-shadow: 0px 10px 14px -7px #68386b;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+	background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+	background-color:#599bb3;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:29px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+
+#botonListaPokemon {
+    margin: 5px 5px 10px 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    position: inherit;
+    padding: 3px;
+    -moz-box-shadow: 0px 10px 14px -7px #68386b;
+	-webkit-box-shadow: 0px 10px 14px -7px #68386b;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:black;
+
+
+}
+
+#botonListaAtaques {
+    margin: 10px 5px 5px 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    position: inherit;
+    padding: 3px;
+    -moz-box-shadow: 0px 10px 14px -7px #276873;
+	-webkit-box-shadow: 0px 10px 14px -7px #276873;
+	box-shadow: 0px 10px 14px -7px #68386b;
+	background: black;
+
+}
+
+#botonMarcador {
+    margin: 5px 5px 10px 5px;
+    border: 1px solid #050505;
+    border-radius: 15px;
+    position: inherit;
+    padding: 3px;
+    -moz-box-shadow: 0px 10px 14px -7px #68386b;
+	-webkit-box-shadow: 0px 10px 14px -7px #68386b;
+	box-shadow: 0px 10px 14px -7px #68386b;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68386b), color-stop(1, #050505));
+	background:-moz-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-webkit-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-o-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-ms-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:linear-gradient(to bottom, #68386b 5%, #050505 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #050505), color-stop(1, #68386b));
+	background:-moz-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-webkit-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-o-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-ms-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:linear-gradient(to bottom, #050505 5%, #68386b 100%);
+	background-color:#050505;
+
+
+}
+
+#botonPresentacionInicio {
+    border: 1px solid #050505;
+    border-radius: 25px;
+    position: inherit;
+    -moz-box-shadow: 0px 10px 14px -7px #050505;
+	-webkit-box-shadow: 0px 10px 14px -7px #050505;
+	box-shadow: 0px 10px 14px -7px #276873;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68386b), color-stop(1, #050505));
+	background:-moz-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-webkit-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-o-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:-ms-linear-gradient(top, #68386b 5%, #050505 100%);
+	background:linear-gradient(to bottom, #68386b 5%, #050505 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #050505), color-stop(1, #68386b));
+	background:-moz-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-webkit-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-o-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:-ms-linear-gradient(top, #050505 5%, #68386b 100%);
+	background:linear-gradient(to bottom, #050505 5%, #68386b 100%);
+	background-color:#050505;
+}
+
+table.TablaPokeResultado {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.TablaPokeResultado th, td {
+    text-align:  center;
+    padding: 8px;
+    
+}
+
+table.TablaPokeResultado td {
+    color: white;
+}
+
+table.TablaPokeResultado th {
+    background-color: #a08585;
+    border : 0px solid ;
+    border-radius: 40px;
+    color: white;
+} 
+
+h2.TituloPokeResultado{
+    width:100%;
+    text-align: center;
+    color : white;
+}
+
+.TextoRetro {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px;
+  overflow: hidden;
+  border: none;
+  font: normal 70px/1 "VT323", Helvetica, sans-serif;
+  color: rgba(241,239,244,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 5px 5px 0 rgba(109,104,104,1) ;
+  word-spacing:0pt;
+  letter-spacing:8pt;
+}
+
+#imagenVistaPeleaPlataforma
+{
+    position: absolute;
+    width:60%;
+    height:20%;
+    left:22%;
+    top:55%;
+    z-index: 1;
+}

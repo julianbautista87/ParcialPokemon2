@@ -1,0 +1,50 @@
+﻿@model ParcialPokemon.Models.Funciones
+
+@{
+        Dictionary<string, string> DiccionarioTiposporNombre = new Dictionary<string, string>();
+        Dictionary<string, string> DiccionarioNivelporNombre = new Dictionary<string, string>();
+
+        Dictionary<int, string> DiccionarioTipoNumero = new Dictionary<int, string>
+            {
+                {1,"Piedra" },
+                {2,"Tierra" },
+                {3,"Agua" },
+                {4,"Fuego" },
+                {5,"Planta" },
+                {6,"Lucha" },
+                {7,"Normal" },
+                {8,"Psiquico" },
+                {9,"Fantasma" },
+                {10,"Dragon" }
+            };
+
+
+    for(int i = 0; i <  ViewBag.PokemonPropio.Ataques.Count; i++)
+    {
+        DiccionarioTiposporNombre.Add(ViewBag.PokemonPropio.Ataques[i].Nombre, DiccionarioTipoNumero[ViewBag.PokemonPropio.Ataques[i].Tipo]);
+        DiccionarioNivelporNombre.Add(ViewBag.PokemonPropio.Ataques[i].Nombre, ViewBag.PokemonPropio.Ataques[i].Nivel.ToString());
+    }
+
+}
+<h5 style="color : white ; text-align :center">ATAQUES</h5>
+<table class="table" style="table-layout:fixed;">
+
+    @foreach (var item in DiccionarioTiposporNombre)
+    {
+
+        <tr align="center">
+            <td>
+                <a style="color:white; cursor:pointer;" id="botonAtaque" 
+                   data-url-ciclo="@Url.Content(string.Format("~/Pelea/IniciarCicloAtaque?NombreAtaque={0}", item.Key))" 
+                   data-url-marcador="@Url.Content(string.Format("~/Pelea/GetPokeResultado"))"> @Html.DisplayFor(modelItem => item.Key)</a>
+            </td>
+            <td>
+                <h6 style="color:white;">@Html.DisplayFor(modelItem => item.Value)</h6>
+            </td>
+            <td>
+                <h6 style="color:white;">@Html.DisplayFor(modelItem => DiccionarioNivelporNombre[item.Key])</h6>
+            </td>
+        </tr>
+    }
+</table>
+

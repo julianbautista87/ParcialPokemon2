@@ -1,0 +1,23 @@
+﻿
+@{
+    int VidaPokemonPropio = ViewBag.PokemonPropio.VidaActual;
+    int VidaPokemonPropioMax = ViewBag.PokemonPropio.Vida;
+    int VidaPokemonEnemigo = ViewBag.PokemonEnemigo.VidaActual;
+    int VidaPokemonEnemigoMax = ViewBag.PokemonEnemigo.Vida;
+
+
+}
+
+<img id="imagenVistaPelea">
+<div id="PokemonPropio">
+    <progress class="progress" style="position: absolute; width:50%; margin-left:25%;" value="@Html.Raw(VidaPokemonPropio)" max="@Html.Raw(VidaPokemonPropioMax)" aria-describedby="example-caption-4"></progress>
+    <img id="imagenVistaPeleaPokemonPropio" src="@Url.Content(ViewBag.PokemonPropio.ImagenTrasera)" alt="Image" />
+    <img id="imagenVistaPeleaPlataforma" src="@Url.Content("~/Files/plataforma.png")" alt="Image">
+</div>
+<div id="PokemonEnemigo">
+    <progress class="progress" style="position: absolute; width:50%; margin-left:25%;" value="@Html.Raw(VidaPokemonEnemigo)" max="@Html.Raw(VidaPokemonEnemigoMax)" aria-describedby="example-caption-4"></progress>
+    <img id="imagenVistaPeleaPokemonEnemigo" src="@Url.Content(ViewBag.PokemonEnemigo.ImagenFrontal)" alt="Image">
+    <img id="imagenVistaPeleaPlataforma" src="@Url.Content("~/Files/plataforma.png")" alt="Image">
+    
+</div>
+

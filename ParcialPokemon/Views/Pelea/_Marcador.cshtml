@@ -1,0 +1,53 @@
+﻿@{
+    Dictionary<int, string> DiccionarioTipoNumero = new Dictionary<int, string>
+            {
+                {1,"Piedra" },
+                {2,"Tierra" },
+                {3,"Agua" },
+                {4,"Fuego" },
+                {5,"Planta" },
+                {6,"Lucha" },
+                {7,"Normal" },
+                {8,"Psiquico" },
+                {9,"Fantasma" },
+                {10,"Dragon" }
+            };
+
+    string VidaPokemonPropio = ViewBag.PokemonPropio.VidaActual.ToString();
+    string VidaPokemonPropioMax = ViewBag.PokemonPropio.Vida.ToString();
+    string VidaPokemonEnemigo = ViewBag.PokemonEnemigo.VidaActual.ToString();
+    string VidaPokemonEnemigoMax = ViewBag.PokemonEnemigo.Vida.ToString();
+    string PokemonPropio = ViewBag.PokemonPropio.Nombre;
+    string PokemonEnemigo = ViewBag.PokemonEnemigo.Nombre;
+    string PokemonTipoPropio = DiccionarioTipoNumero[ViewBag.PokemonPropio.Tipo];
+    string PokemonTipoEnemigo = DiccionarioTipoNumero[ViewBag.PokemonEnemigo.Tipo];
+    string VictoriasPropias = ViewBag.NumeroVictoriasPropias.ToString();
+    string VictoriasEnemigos = ViewBag.NumeroVictoriasEnemigo.ToString();
+ }
+
+<h2 class="TituloPokeResultado">@Html.Raw("PokeResultado : " + VictoriasPropias + " - " + VictoriasEnemigos)</h2>
+<table class="TablaPokeResultado">
+    <tr>
+        <th>Nombre Pokemon Propio</th>
+        <th>Tipo</th>
+        <th>Vida</th>
+    </tr>
+    <tr>
+        <td>@Html.Raw(PokemonPropio)</td>
+        <td>@Html.Raw(PokemonTipoPropio)</td>
+        <td>@Html.Raw(VidaPokemonPropio + " / " + VidaPokemonPropioMax)</td>
+    </tr>
+</table>
+<hr></hr>
+<table class="TablaPokeResultado">
+    <tr>
+        <th>Nombre Pokemon Enemigo</th>
+        <th>Tipo</th>
+        <th>Vida</th>
+    </tr>
+    <tr>
+        <td>@Html.Raw(PokemonEnemigo)</td>
+        <td>@Html.Raw(PokemonTipoEnemigo)</td>
+        <td>@Html.Raw(VidaPokemonEnemigo + " / " + VidaPokemonEnemigoMax)</td>
+    </tr>
+</table>

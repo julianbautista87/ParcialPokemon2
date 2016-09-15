@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model ParcialPokemon.Models.PokemonViewModel
+
+
+@{
+    var pokemones = Model.Pokemones;
+    var ataques = Model.Ataques;
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <div id="botonListaPokemon">
+                <table class="table">
+
+                    @foreach (var item in pokemones)
+                    {
+
+                        <tr align="center">
+                            <td>
+                                <a data-url-ataques="@Url.Content(string.Format("~/Pelea/GetAtaques?nombrePokemon={0}", item.Nombre))" 
+                                   data-url-partida="@Url.Content(string.Format("~/Pelea/GetPartida?nombrePokemon={0}", item.Nombre))" 
+                                   data-url-marcador="@Url.Content("~/Pelea/GetPokeResultado")"
+                                   style="color:white; cursor:pointer;">@Html.DisplayFor(modelItem => item.Nombre)</a>
+                            </td>
+                            <td>
+                                <img src="@Url.Content(item.Icono)" alt="Image" />
+                            </td>
+                        </tr>
+                    }
+                </table>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div id="vistaPelea">
+            <div id="botonPresentacionInicio" align="center">
+                <link async href="http://fonts.googleapis.com/css?family=VT323" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
+                <h1 class="TextoRetro">POKEMON GALAXY</h1>
+                <h2 class="TextoRetro" align="center" style="font-size:200%; text-shadow: 2px 2px 0 rgba(109,104,104,1) ;">Selecciona tu Pokemon para empezar</h2>
+                <img src="http://cdn.bulbagarden.net/upload/thumb/4/47/Red_Adventures.png/200px-Red_Adventures.png" alt="Image" />
+            </div>
+         </div>
+
+
+        <div id="botonMarcador">
+            
+            
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div id="botonListaAtaques">
+     
+        </div>
+    </div>
+</div>
+
+
+<audio id="AudioInicioPelea">
+    <source src="@Url.Action("AudioInicioPelea")" type="audio/mp3" />
+    <p>Your browser does not support HTML 5 audio element</p>
+</audio>
+
+<audio id="AudioDurantePelea">
+    <source src="@Url.Action("AudioDurantePelea")" type="audio/mp3" />
+    <p>Your browser does not support HTML 5 audio element</p>
+</audio>
+
+<audio id="AudioFinalPelea">
+    <source src="@Url.Action("AudioFinalPelea")" type="audio/mp3" />
+    <p>Your browser does not support HTML 5 audio element</p>
+</audio>
+
+
+@section scripts
+{
+    <script>
+
+        var update_marcador = function (url_marcador) {
+            $.ajax({
+                method: 'POST',
+                url: url_marcador
+            })
+            .done(function (data) {
+                $('#botonMarcador').html(data);
+                $('#botonMarcador').show('fast');
+            });
+        };
+
+        // Se ejecuta al seleccionar un pokemon y actualiza el campo de batalla
+        $('body').on('click', '[data-url-partida]', function () {
+            var url_marcador = $(this).data('url-marcador');
+            $.ajax({
+                method: 'POST',
+                url: $(this).data('url-partida')
+            })
+            .done(function (data) {
+                $('#vistaPelea').html(data);
+                $('#vistaPelea').show('fast');
+
+                update_marcador(url_marcador);
+
+
+            });
+
+
+            $('#AudioInicioPelea')[0].play();
+
+            
+        });
+        //Se ejecuta cuando se selecciona un pokemon y lista sus ataquees
+        $('body').on('click', '[data-url-ataques]', function () {
+            $.ajax({
+                method: 'POST',
+                url: $(this).data('url-ataques')
+            })
+            .done(function (data) {
+                $('#botonListaAtaques').html(data);
+                $('#botonListaAtaques').show('fast');
+            });
+        });
+
+        //Inicia el ciclo del ataque
+        $('body').on('click', '[data-url-ciclo]', function () {
+            var url_marcador = $(this).data('url-marcador');
+            $.ajax({
+                method: 'POST',
+                url: $(this).data('url-ciclo')
+            })
+            .done(function (data) {
+                $('#vistaPelea').html(data);
+                $('#vistaPelea').show('fast');
+
+                update_marcador(url_marcador);
+
+            });
+        });
+
+        $('#AudioInicioPelea').bind("ended", function () {
+            //$('#AudioDurantePelea')[0].endTime = 61;
+            $('#AudioDurantePelea')[0].play();
+        });
+
+        $('#AudioDurantePelea').bind("ended", function () {
+            //$('#AudioDurantePelea')[0].endTime = 61;
+            $('#AudioDurantePelea')[0].play();
+        });
+
+        //function PlayAudioDuring()
+        //{
+            
+        //}
+
+        //$("#AudioInicioPelea").bind("timeupdate", function () {
+        //    if ($("#AudioInicioPelea")[0].currentTime >= $("#AudioInicioPelea")[0].endTime) {
+        //        $("#AudioInicioPelea")[0].stop();
+
+
+        //        $("#AudioDurantePelea")[0].endTime = 61;
+        //        $("#AudioDurantePelea")[0].play();
+        //    }
+        //});
+
+    </script>
+}
